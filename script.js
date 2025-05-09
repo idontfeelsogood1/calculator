@@ -9,22 +9,23 @@ function multiply(num1, num2) {
     return num1 * num2;
 }
 function divide(num1, num2) {
-    return num1 / num2
+    return num1 / num2;
+        
 }
 
 // operation function
-let number1 = null;
-let number2 = null;
-let operator = null; 
-
 function operate(operator, num1, num2) {
     if (operator === '+') return add(num1, num2);
     else if (operator === '-') return subtract(num1, num2);
     else if (operator === '*') return multiply(num1, num2);
-    else if (operator === '/') return Math.round(divide(num1, num2) * 10) / 10;    
+    if (num2 === 0 && operator === '/') {
+        return 'infinity';
+    } else if (operator === '/') return Math.round(divide(num1, num2) * 10) / 10;    
 }
 
 // populate display function
+let number1 = null;
+let number2 = null;
 let currentNum = '';
 let clearText = true;
 let operandList = document.querySelectorAll('.operand');
@@ -40,6 +41,10 @@ function populateDisplay() {
                 clearText = false;
                 display.innerText = '';
             } 
+            if (display.innerText === 'infinity') {
+                clearInf();
+                return;
+            }
             if (number1 != null) {
                 display.innerText += operand.innerText;
                 currentNum += operand.innerText
@@ -51,12 +56,17 @@ function populateDisplay() {
         })
     }
 }
+
 populateDisplay();
 
 // store currentNum in number1 and set clearText to true for the next number
-function whenOperatorIsPressed() {
+function operator() {
     for (let operator of operatorList) {
         operator.addEventListener('click', () => {
+            if (display.innerText === 'infinity') {
+                clearInf();
+                return;
+            }
             if (number1 && number2) {
                 display.innerText = operate(currentOperator, Number(number1), Number(number2));
                 number1 = display.innerText;
@@ -73,12 +83,16 @@ function whenOperatorIsPressed() {
     }
 }
 
-whenOperatorIsPressed();
+operator();
 
 // calculate when equal is pressed 
-function whenEqualIsPressed() {
+function equal() {
     let equal = document.querySelector('.equal');
     equal.addEventListener('click', () => {
+        if (display.innerText === 'infinity') {
+            clearInf();
+            return;
+        }
         if (number1 != null && number2 != null) {
             display.innerText = operate(currentOperator, Number(number1), Number(number2));
             currentOperator = null;
@@ -90,4 +104,31 @@ function whenEqualIsPressed() {
     })
 }
 
-whenEqualIsPressed();
+equal();
+
+// clear everything when clear is pressed 
+function clear() {
+    let clearBtn = document.querySelector('.clear');
+    clearBtn.addEventListener('click', () => {
+        currentNum = '';
+        clearText = true;
+        currentOperator = '';
+        number1 = null;
+        number2 = null;
+        currentOperator = null; 
+        display.innerText = 0;
+    })
+}
+
+// clear everything when display is infinity when user press a button
+function clearInf() {
+    currentNum = '';
+    clearText = true;
+    currentOperator = '';
+    number1 = null;
+    number2 = null;
+    currentOperator = null; 
+    display.innerText = 0;
+}
+
+clear();
