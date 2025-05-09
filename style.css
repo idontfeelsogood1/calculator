@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+}
+
+.display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.columnContainer {
+    display: flex;
+    flex: 6;
+    flex-direction: column;
+}
+
+.col {
+    display: flex;   
+    flex: 1;
+}
+
+.col button {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.col .zero {
+    flex: 2.18;
+}
