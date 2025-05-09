@@ -31,3 +31,39 @@ above functions on the numbers.
 
 ##################################
 
+Create a basic HTML calculator 
+with buttons for each digit 
+and operator (including =)
+
+Don’t worry about making them 
+functional just yet.
+
+There should also be 
+a display for the calculator. 
+Go ahead and fill it 
+with some dummy numbers 
+so it looks correct.
+
+Add a “clear” button.
+
+##################################
+
+Create the functions that 
+populate the display when 
+you click the digit buttons
+
+store the content of 
+the display (the number) in 
+a variable for use in the next step
+
+##################################
+
+// pseudocode
+
+CREATE leadingZero boolean variable
+CREATE displayLength variable
+
+WHEN clicked:
+    IF leadingZero equals to true 
+        SET leadingZero to false
+        SET display.innerText to ''

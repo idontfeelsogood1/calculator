@@ -29,3 +29,25 @@ function operate(operator, num1, num2) {
     else if (operator === '/') return divide(num1, num2);    
 }
 
+// populate display function
+let displayContent = '';
+let leadingZero = true;
+let operandList = document.querySelectorAll('.operand');
+let display = document.querySelector('.display div');
+
+
+function populateDisplay() {
+    for (let operand of operandList) {
+        operand.addEventListener('click', () => {
+            if (leadingZero) {
+                leadingZero = false;
+                display.innerText = '';
+            }        
+            display.innerText += operand.innerText;
+            displayContent += operand.innerText
+        })
+    }
+}
+populateDisplay();
+
+
