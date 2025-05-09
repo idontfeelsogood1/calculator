@@ -56,7 +56,7 @@ store the content of
 the display (the number) in 
 a variable for use in the next step
 
-// pseudocode
+// Pseudocode
 
 CREATE leadingZero boolean variable
 CREATE displayLength variable
@@ -84,3 +84,21 @@ Figure out how to
 store all the values and 
 call the operate function with 
 them
+
+// Pseudocode
+
+User enters first number
+
+WHEN operators is pressed, 
+    STORE the value in a variable
+    LET the operator hold down
+
+user enters second number
+
+WHEN equal is pressed,
+    STORE the value in a variable
+    CALCULATE the result
+    PRINT it on the display
+
+#####################################
+

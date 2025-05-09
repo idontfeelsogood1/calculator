@@ -12,15 +12,10 @@ function divide(num1, num2) {
     return num1 / num2
 }
 
-console.log(add(10, 2))
-console.log(subtract(10, 2))
-console.log(multiply(10, 2))
-console.log(divide(10, 2))
-
 // operation function
-const number1 = null;
-const number2 = null;
-const operator = null; 
+let number1 = 0;
+let number2 = 0;
+let operator = ''; 
 
 function operate(operator, num1, num2) {
     if (operator === '+') return add(num1, num2);
@@ -30,40 +25,53 @@ function operate(operator, num1, num2) {
 }
 
 // populate display function
-let displayContent = '';
+let currentNum = '';
 let clearText = true;
 let operandList = document.querySelectorAll('.operand');
 let display = document.querySelector('.display div');
 let operatorList = document.querySelectorAll('.operator');
-
-let operationTracker = '';
+let currentOperator = '';
 
 function populateDisplay() {
     for (let operand of operandList) {
         operand.addEventListener('click', () => {
             if (clearText) {
+                currentNum = '';
                 clearText = false;
                 display.innerText = '';
-            }        
-            display.innerText += operand.innerText;
-            displayContent += operand.innerText
+            } 
+            if (number1 != null) {
+                display.innerText += operand.innerText;
+                currentNum += operand.innerText
+                number2 = currentNum;
+            } else {
+                display.innerText += operand.innerText;
+                currentNum += operand.innerText
+            }
         })
     }
 }
 populateDisplay();
 
-// clear display when operator is pressed
+// store currentNum in number1 and set clearText to true for the next number
 function whenOperatorIsPressed() {
     for (let operator of operatorList) {
         operator.addEventListener('click', () => {
-            if (!clearText) {
-                display.innerText = '';
-                clearText = true;
-                operationTracker = operator.innerText;
-            }
+            currentOperator = operator.innerText;
+            number1 = currentNum;
+            clearText = true;
         })
     }
 }
 
-// call operate() when operationTracker is not empty
+whenOperatorIsPressed();
 
+// calculate when equal is pressed 
+function whenEqualIsPressed() {
+    let equal = document.querySelector('.equal');
+    equal.addEventListener('click', () => {
+        display.innerText = operate(currentOperator, Number(number1), Number(number2));
+    })
+}
+
+whenEqualIsPressed();

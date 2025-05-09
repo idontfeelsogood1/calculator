@@ -64,8 +64,12 @@
     background-color: dodgerblue;
 }
 
-.operator {
+.operator, .equal {
     background-color: #FF8F1F;
+}
+
+.operand.zero {
+    flex: 2.23;
 }
 
 .operand {
