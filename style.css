@@ -28,9 +28,10 @@ body {
     width: 400px;
     height: 500px;
     padding: 10px;
+    margin-bottom: 80px;
     background-color: #000061;
     border-radius: 7px;
-    gap: 10px
+    gap: 10px  
 }
 
 .display {
