@@ -56,8 +56,6 @@ store the content of
 the display (the number) in 
 a variable for use in the next step
 
-##################################
-
 // pseudocode
 
 CREATE leadingZero boolean variable
@@ -67,3 +65,22 @@ WHEN clicked:
     IF leadingZero equals to true 
         SET leadingZero to false
         SET display.innerText to ''
+
+##################################
+
+Store the first and 
+second numbers input by 
+the user and then operate() on 
+them when the user presses 
+the = button, according to 
+the operator that was selected 
+between the numbers.
+
+Once operate has been called, 
+update the display with 
+the result of the operation
+
+Figure out how to 
+store all the values and 
+call the operate function with 
+them
