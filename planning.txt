@@ -1,0 +1,9 @@
+Calculator is going to contain functions 
+for all the basic math operators
+
+Start by creating functions for the following items
+- add
+- subtract
+- multiply
+- divide
+
