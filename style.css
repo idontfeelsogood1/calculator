@@ -28,7 +28,7 @@ body {
     width: 400px;
     height: 500px;
     padding: 10px;
-    background-color: #807979;
+    background-color: #000061;
     border-radius: 7px;
     gap: 10px
 }
@@ -80,15 +80,15 @@ body {
 
 
 .clear, .swap, .percent {
-    background-color: dodgerblue;
+    background-color: #613006;
 }
 
 .operator, .equal {
-    background-color: #FF8F1F;
+    background-color: #4a0414;
 }
 
 .operand {
-    background-color: #217C7E;
+    background-color: #03032e;
 }
 
 .header {
