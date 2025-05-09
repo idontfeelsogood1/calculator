@@ -102,3 +102,15 @@ WHEN equal is pressed,
 
 #####################################
 
+Calculator should not evaluate more 
+than a single pair of numbers at a time
+
+// Pseudocode
+
+WHEN user do ex(1 + 2) and pressed an operator
+    CALCULATE the first expression 
+    AND store it in number1
+
+    DISPLAY the result
+
+USE that result for the next operand

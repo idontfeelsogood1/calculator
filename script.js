@@ -13,9 +13,9 @@ function divide(num1, num2) {
 }
 
 // operation function
-let number1 = 0;
-let number2 = 0;
-let operator = ''; 
+let number1 = null;
+let number2 = null;
+let operator = null; 
 
 function operate(operator, num1, num2) {
     if (operator === '+') return add(num1, num2);
@@ -57,9 +57,18 @@ populateDisplay();
 function whenOperatorIsPressed() {
     for (let operator of operatorList) {
         operator.addEventListener('click', () => {
-            currentOperator = operator.innerText;
-            number1 = currentNum;
-            clearText = true;
+            if (number1 && number2) {
+                display.innerText = operate(currentOperator, Number(number1), Number(number2));
+                number1 = display.innerText;
+                currentNum = display.innerText;
+                clearText = true;
+                number2 = null;
+                currentOperator = operator.innerText;
+            } else {
+                currentOperator = operator.innerText;
+                number1 = currentNum;
+                clearText = true;
+            }
         })
     }
 }
@@ -70,7 +79,14 @@ whenOperatorIsPressed();
 function whenEqualIsPressed() {
     let equal = document.querySelector('.equal');
     equal.addEventListener('click', () => {
-        display.innerText = operate(currentOperator, Number(number1), Number(number2));
+        if (number1 != null && number2 != null) {
+            display.innerText = operate(currentOperator, Number(number1), Number(number2));
+            currentOperator = null;
+            currentNum = display.innerText;
+            number1 = null;
+            number2 = null;
+            clearText = true;
+        }
     })
 }
 
