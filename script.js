@@ -21,7 +21,7 @@ function operate(operator, num1, num2) {
     if (operator === '+') return add(num1, num2);
     else if (operator === '-') return subtract(num1, num2);
     else if (operator === '*') return multiply(num1, num2);
-    else if (operator === '/') return divide(num1, num2);    
+    else if (operator === '/') return Math.round(divide(num1, num2) * 10) / 10;    
 }
 
 // populate display function
